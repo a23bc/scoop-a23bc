@@ -1,57 +1,36 @@
 {
-    "version": "2.2.0",
-    "description": "HypoMux - Multi-NIC bandwidth aggregation download accelerator for Windows",
-    "homepage": "https://github.com/Hypostasis-Cat/HypoMux",
-    "license": "AGPL-3.0-only",
-
-    "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.2.0/HypoMux_Setup_2.2.0.exe",
-    "hash": "2e6547358cd50a218a60ccc789b08691124d1b65a912b5c4f43e54d50c6c34f0",
-
-    "pre_install": [
-        "Write-Host 'Locating cached installer...' -ForegroundColor Yellow",
-        "$installer = Get-ChildItem \"$cachedir\" -Filter '*.exe' | Where-Object { $_.Name -match '^HypoMux' } | Select-Object -First 1",
-        "if (!$installer) { throw 'HypoMux installer not found in cache' }",
-        "Write-Host \"Extracting: $($installer.FullName)\" -ForegroundColor Yellow",
-        "& innounp -x -d\"$dir\" \"$($installer.FullName)\"",
-        "if (Test-Path \"$dir\\{app}\") {",
-        "    Write-Host 'Flattening {app} directory...' -ForegroundColor Yellow",
-        "    Move-Item \"$dir\\{app}\\*\" \"$dir\" -Force",
-        "    Remove-Item \"$dir\\{app}\" -Recurse -Force",
-        "}",
-        "if (!(Test-Path \"$dir\\HypoMux.exe\")) {",
-        "    throw 'HypoMux.exe not found after extraction'",
-        "}"
+  "version": "2.2.0",
+  "description": "HypoMux - Multi-NIC bandwidth aggregation download accelerator for Windows",
+  "homepage": "https://github.com/Hypostasis-Cat/HypoMux",
+  "license": "AGPL-3.0-only",
+  "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.2.0/HypoMux_Setup_2.2.0.exe",
+  "hash": "2e6547358cd50a218a60ccc789b08691124d1b65a912b5c4f43e54d50c6c34f0",
+  "innosetup": true,
+  "bin": [
+    [
+      "HypoMux.exe",
+      "hypomux"
     ],
-
-    "bin": [
-        [
-            "HypoMux.exe",
-            "hypomux"
-        ],
-        [
-            "diagnostic.exe",
-            "hypomux-diagnostic"
-        ]
-    ],
-
-    "shortcuts": [
-        [
-            "HypoMux.exe",
-            "HypoMux"
-        ]
-    ],
-
-    "checkver": {
-        "github": "Hypostasis-Cat/HypoMux"
-    },
-
-    "autoupdate": {
-        "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v$version/HypoMux_Setup_$version.exe"
-    },
-
-    "notes": [
-        "HypoMux is distributed under AGPL-3.0-only.",
-        "Modified network service deployments must provide corresponding source code.",
-        "https://www.gnu.org/licenses/agpl-3.0.html"
+    [
+      "diagnostic.exe",
+      "hypomux-diagnostic"
     ]
+  ],
+  "shortcuts": [
+    [
+      "HypoMux.exe",
+      "HypoMux"
+    ]
+  ],
+  "checkver": {
+    "github": "Hypostasis-Cat/HypoMux"
+  },
+  "autoupdate": {
+    "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v$version/HypoMux_Setup_$version.exe"
+  },
+  "notes": [
+    "HypoMux is distributed under AGPL-3.0-only.",
+    "Modified network service deployments must provide corresponding source code.",
+    "https://www.gnu.org/licenses/agpl-3.0.html"
+  ]
 }

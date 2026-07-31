@@ -1,40 +1,29 @@
 {
-  "version": "2.0.15",
-  "description": "Stelliberty - A modern Clash/Mihomo GUI client",
-  "homepage": "https://github.com/Kindness-Kismet/stelliberty",
-  "license": {
-    "type": "Custom",
-    "url": "https://github.com/Kindness-Kismet/stelliberty/blob/main/LICENSE"
-  },
-  "url": "https://github.com/Kindness-Kismet/stelliberty/releases/download/v2.0.15/stelliberty-v2.0.15-win-x64.zip",
-  "hash": "dcf180f6839742172d63d7ab0cd0a17810ab493d69606d57b28c2b585a42359c",
-  "architecture": {
-    "64bit": {
-      "extract_dir": ""
-    }
-  },
-  "bin": [
-    "stelliberty.exe",
-    ["stelliberty.exe", "stelliberty"]
-  ],
-  "shortcuts": [
-    ["stelliberty.exe", "Stelliberty"]
-  ],
-  "notes": [
-    "⚠️ License Notice:",
-    "This software is licensed under a custom NON-COMMERCIAL license.",
-    "- No commercial use allowed (selling, monetizing, paid services, etc.)",
-    "- Modified versions must be open-sourced under the same license",
-    "- Derivative works must remove all 'Stelliberty' branding/identifiers",
-    "See: https://github.com/Kindness-Kismet/stelliberty/blob/main/LICENSE"
-  ],
-  "depends": [],
-  "checkver": "github",
-  "autoupdate": {
-    "architecture": {
-      "64bit": {
+    "version": "2.0.15",
+    "description": "A modern Clash/Mihomo GUI client.",
+    "homepage": "https://github.com/Kindness-Kismet/stelliberty",
+    "license": "Freeware",
+    "url": "https://github.com/Kindness-Kismet/stelliberty/releases/download/v2.0.15/stelliberty-v2.0.15-win-x64.zip",
+    "hash": "dcf180f6839742172d63d7ab0cd0a17810ab493d69606d57b28c2b585a42359c",
+    "bin": "stelliberty.exe",
+    "shortcuts": [
+        [
+            "stelliberty.exe",
+            "Stelliberty"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/Kindness-Kismet/stelliberty"
+    },
+    "autoupdate": {
         "url": "https://github.com/Kindness-Kismet/stelliberty/releases/download/v$version/stelliberty-v$version-win-x64.zip"
-      }
-    }
-  }
+    },
+    "notes": [
+        "⚠️ License Notice:",
+        "This software is licensed under a custom NON-COMMERCIAL license.",
+        "- No commercial use allowed (selling, monetizing, paid services, etc.)",
+        "- Modified versions must be open-sourced under the same license",
+        "- Derivative works must remove all 'Stelliberty' branding/identifiers",
+        "See: https://github.com/Kindness-Kismet/stelliberty/blob/main/LICENSE"
+    ]
 }
