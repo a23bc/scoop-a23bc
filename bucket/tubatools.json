@@ -1,0 +1,44 @@
+{
+    "version": "202608",
+    "description": "图吧工具箱 - 最纯净的硬件检测工具合集。",
+    "homepage": "http://www.tbtool.cn/",
+    "license": "Freeware",
+    "url": "https://apac.tualatin.club/%E5%9B%BE%E5%90%A7%E5%B7%A5%E5%85%B7%E7%AE%B1202608%E5%AE%89%E8%A3%85%E5%8C%85.exe",
+    "hash": "a7c707d8714791990613b2d20eb59c8e7854d5c0ae20fe616b583175b3436768",
+    "pre_install": [
+        "# 1. 手动调用 innounp 进行完整路径解压，并主动忽略其最终的崩溃退出码 (Exit code 3)",
+        "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
+        "if ($installer) {",
+        "    # 使用 -x 提取完整路径，-d 指定目录。即使 innounp 崩溃，已解压的文件也会保留在硬盘上。",
+        "    & innounp -x -y -d\"$dir\" \"$($installer.FullName)\" *> $null",
+        "}",
+        "",
+        "# 2. 将 {app} 目录下的内容提升到根目录，并清理空壳",
+        "if (Test-Path \"$dir\\{app}\") {",
+        "    Get-ChildItem \"$dir\\{app}\" -Force | Move-Item -Destination $dir -Force",
+        "    Remove-Item \"$dir\\{app}\" -Recurse -Force",
+        "}",
+        "",
+        "# 3. 动态重命名主程序（如 图吧工具箱2026.exe -> 图吧工具箱.exe），修复快捷方式报错",
+        "$exe = Get-ChildItem $dir -Filter '图吧工具箱*.exe' -ErrorAction SilentlyContinue | Select-Object -First 1",
+        "if ($exe -and $exe.Name -ne '图吧工具箱.exe') {",
+        "    Rename-Item $exe.FullName '图吧工具箱.exe'",
+        "}",
+        "",
+        "# 4. 清理原始安装包",
+        "if ($installer) { Remove-Item $installer.FullName -Force -ErrorAction SilentlyContinue }"
+    ],
+    "shortcuts": [
+        [
+            "图吧工具箱.exe",
+            "图吧工具箱"
+        ]
+    ],
+    "checkver": {
+        "url": "http://www.tbtool.cn/",
+        "regex": "图吧工具箱[\\sVv]*(?<version>[\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://apac.tualatin.club/%E5%9B%BE%E5%90%A7%E5%B7%A5%E5%85%B7%E7%AE%B1$version%E5%AE%89%E8%A3%85%E5%8C%85.exe"
+    }
+}
