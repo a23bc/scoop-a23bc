@@ -1,0 +1,53 @@
+{
+    "version": "25.0.90.1586",
+    "description": "迅雷 (Thunder) - 拥有迅雷云盘、高速下载、边下边播等功能的下载工具。",
+    "homepage": "https://pc.xunlei.com/",
+    "license": "Proprietary",
+    "architecture": {
+        "64bit": {
+            "url": "https://down.sandai.net/thunder_pc/ThunderSetup25.0.90.1586xl.exe",
+            "hash": "52c3841b444cdf5b8747447fb3fc396c4d35ad724978d9cea1321fd1154401f3"
+        }
+    },
+    "extract_dir": "",
+    "pre_install": [
+        "# 1. 解压外层 ThunderSetup.exe 安装包",
+        "$installer = Get-ChildItem $dir -Filter 'ThunderSetup*.exe' -ErrorAction SilentlyContinue | Select-Object -First 1",
+        "if ($installer) { Expand-7zipArchive $installer.FullName \"$dir\" -Removal }",
+        "",
+        "# 2. 解压内层核心程序包 ThunderProgram.7z",
+        "$coreArchive = Get-ChildItem $dir -Filter 'ThunderProgram.7z' -ErrorAction SilentlyContinue | Select-Object -First 1",
+        "if ($coreArchive) { Expand-7zipArchive $coreArchive.FullName \"$dir\" -Removal }",
+        "",
+        "# 3. 【核心还原】确保程序文件在 program 子目录中，完美契合迅雷原生目录结构",
+        "$programDir = Join-Path $dir 'program'",
+        "if (Test-Path (Join-Path $dir 'Thunder.exe')) {",
+        "    # 如果 7z 解压出来没有自带 program 文件夹，手动建一个并把所有文件塞进去",
+        "    New-Item -ItemType Directory -Path $programDir -Force | Out-Null",
+        "    Get-ChildItem $dir -Exclude 'program' | Move-Item -Destination $programDir -Force",
+        "}"
+    ],
+    "shortcuts": [
+        [
+            "program\\Thunder.exe",
+            "迅雷"
+        ]
+    ],
+    "persist": [
+        "Profiles",
+        "reshub",
+        "BHO",
+        "contextMenu"
+    ],
+    "checkver": {
+        "url": "https://pc.xunlei.com/",
+        "regex": "ThunderSetup(?<version>[\\d.]+)xl\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://down.sandai.net/thunder_pc/ThunderSetup$versionxl.exe"
+            }
+        }
+    }
+}
