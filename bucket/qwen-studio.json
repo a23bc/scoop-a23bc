@@ -1,0 +1,44 @@
+{
+    "version": "1.0.3.44",
+    "description": "Qwen Studio - The official desktop client for Qwen AI.",
+    "homepage": "https://qwen.ai/",
+    "license": "Proprietary",
+    "architecture": {
+        "64bit": {
+            "url": "https://download.qwen.ai/windows/x64/Qwen-1.0.3.44-release-win-x64.exe",
+            "hash": "393e4669402e48f3fa6cffd0ebaadfe597b06fb26a11b6aaf03f7ee74df26e60"
+        }
+    },
+    "pre_install": [
+        "# 1. 解压外层 NSIS 安装包",
+        "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
+        "if ($installer) { Expand-7zipArchive $installer.FullName $dir -Removal }",
+        "",
+        "# 2. 提取内部核心包 (如 $PLUGINSDIR/app-64.7z)",
+        "$pluginDir = Get-ChildItem $dir -Directory -Force | Where-Object { $_.Name -match 'PLUGINSDIR|_OUTDIR' } | Select-Object -First 1",
+        "if ($pluginDir) {",
+        "    $archive = Get-ChildItem $pluginDir.FullName -Filter '*.7z' | Select-Object -First 1",
+        "    if ($archive) { Expand-7zipArchive $archive.FullName $dir -Removal }",
+        "}",
+        "",
+        "# 3. 清理所有 NSIS 遗留的无用目录 (以 $ 开头的目录，如 $PLUGINSDIR, $R0, $TEMP 等)",
+        "Get-ChildItem $dir -Directory -Force | Where-Object { $_.Name -match '^\\$' } | Remove-Item -Recurse -Force"
+    ],
+    "shortcuts": [
+        [
+            "Qwen.exe",
+            "Qwen"
+        ]
+    ],
+    "checkver": {
+        "url": "https://qwen.ai/api/config?api.app_download_url",
+        "regex": "Qwen-(?<version>[\\d.]+)-release-win-x64\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.qwen.ai/windows/x64/Qwen-$version-release-win-x64.exe"
+            }
+        }
+    }
+}
