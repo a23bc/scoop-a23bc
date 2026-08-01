@@ -1,0 +1,18 @@
+{
+    "version": "1.2.0.5",
+    "description": "A program for downloading music streams from the streaming platform Qobuz.",
+    "homepage": "https://github.com/ImAiiR/QobuzDownloaderX",
+    "license": "Freeware",
+    "url": "https://github.com/ImAiiR/QobuzDownloaderX/releases/download/1.2.0.5/QBDLX_1.2.0.5.zip",
+    "hash": "98830ddb2a3ba5bde03c0d23e25445bcae4f40f2e25e15ddfb3bc702a7257c26",
+    "shortcuts": [
+        [
+            "QobuzDownloaderX.exe",
+            "QobuzDownloaderX"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/ImAiiR/QobuzDownloaderX/releases/download/$version/QBDLX_$version.zip"
+    }
+}
