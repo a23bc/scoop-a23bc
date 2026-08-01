@@ -3,62 +3,22 @@
     "description": "An AI-native desktop Agent WorkBench",
     "homepage": "https://www.codebuddy.cn/work/",
     "license": "Proprietary",
-    "architecture": {
-        "64bit": {
-            "url": "https://download.codebuddy.cn/workbuddy/saas/win32-x64-user/WorkBuddy-win32-x64-user-5.3.5.34189228-8044e898.exe",
-            "hash": "3064d6e873bd74169e62ea2e480382c120125e6b8f99155649ec2389c3cbfaff"
-        }
-    },
-    "extract_dir": "",
+    "url": "https://download.codebuddy.cn/workbuddy/saas/win32-x64-user/WorkBuddy-win32-x64-user-5.3.5.34189228-8044e898.exe",
+    "hash": "3064d6e873bd74169e62ea2e480382c120125e6b8f99155649ec2389c3cbfaff",
     "pre_install": [
-        "# 0. 双重保险：如果 Scoop 没有自动解压 .exe 安装包，手动调用 7z 强行解压",
-        "$installer = Get-ChildItem $dir -Filter 'WorkBuddy-win32-x64-user-*.exe' -ErrorAction SilentlyContinue | Select-Object -First 1",
-        "if ($installer) {",
-        "    Expand-7zipArchive $installer.FullName \"$dir\" -Removal",
+        "# 1. 解压外层 NSIS 安装包",
+        "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
+        "if ($installer) { Expand-7zipArchive $installer.FullName $dir -Removal }",
+        "",
+        "# 2. 提取内部核心包 (如 $PLUGINSDIR/app-64.7z)",
+        "$pluginDir = Get-ChildItem $dir -Directory -Force | Where-Object { $_.Name -match 'PLUGINSDIR|_OUTDIR' } | Select-Object -First 1",
+        "if ($pluginDir) {",
+        "    $archive = Get-ChildItem $pluginDir.FullName -Filter '*.7z' | Select-Object -First 1",
+        "    if ($archive) { Expand-7zipArchive $archive.FullName $dir -Removal }",
         "}",
         "",
-        "# 1. 智能查找并解压 NSIS 内部的 7z 压缩包 (兼容 $PLUGINSDIR, ~PLUGINSDIR 等变体)",
-        "$pluginDirs = Get-ChildItem $dir -Directory -Force | Where-Object { $_.Name -match 'PLUGINSDIR|~PLUGINSDIR|_OUTDIR' }",
-        "foreach ($pDir in $pluginDirs) {",
-        "    $archive = Get-ChildItem (Join-Path $pDir.FullName '*.7z') -ErrorAction SilentlyContinue | Select-Object -First 1",
-        "    if ($archive) {",
-        "        Expand-7zipArchive $archive.FullName \"$dir\" -Removal",
-        "    }",
-        "    Remove-Item $pDir.FullName -Recurse -Force -ErrorAction SilentlyContinue",
-        "}",
-        "",
-        "# 2. 如果根目录还有残留的 7z 文件，也一并解压",
-        "$rootArchive = Get-ChildItem (Join-Path $dir '*.7z') -ErrorAction SilentlyContinue | Select-Object -First 1",
-        "if ($rootArchive) {",
-        "    Expand-7zipArchive $rootArchive.FullName \"$dir\" -Removal",
-        "}",
-        "",
-        "# 3. 智能提升：如果主程序被嵌套在了子文件夹中，将其移动到根目录",
-        "$exeName = 'WorkBuddy.exe'",
-        "if (-not (Test-Path (Join-Path $dir $exeName))) {",
-        "    $nestedExe = Get-ChildItem $dir -Filter $exeName -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1",
-        "    if ($nestedExe) {",
-        "        # 使用 -Force 确保隐藏文件也能被移动",
-        "        Get-ChildItem $nestedExe.DirectoryName -Force | Move-Item -Destination $dir -Force",
-        "        # 清理被掏空的父目录",
-        "        Get-ChildItem $dir -Directory | Where-Object { (Get-ChildItem $_.FullName -Recurse -Force).Count -eq 0 } | Remove-Item -Recurse -Force",
-        "    }",
-        "}"
-    ],
-    "post_install": [
-        "if (!(Test-Path \"$dir\\data\\extensions\") -and (Test-Path \"$env:USERPROFILE\\.workbuddy\\extensions\")) {",
-        "    info '[Portable Mode] Copying extensions...'",
-        "    Copy-Item \"$env:USERPROFILE\\.workbuddy\\extensions\" \"$dir\\data\" -Recurse",
-        "}",
-        "if (!(Test-Path \"$dir\\data\\user-data\") -and (Test-Path \"$env:AppData\\WorkBuddy\")) {",
-        "    info '[Portable Mode] Copying user data...'",
-        "    Copy-Item \"$env:AppData\\WorkBuddy\" \"$dir\\data\\user-data\" -Recurse",
-        "}",
-        "$extensions_file = \"$dir\\data\\extensions\\extensions.json\"",
-        "if ((Test-Path \"$extensions_file\")) {",
-        "    info 'Adjusting path in extensions file...'",
-        "    (Get-Content \"$extensions_file\") -replace '(?<=workbuddy(/|\\\\\\\\)).*?(?=(/|\\\\\\\\)data(/|\\\\\\\\)extensions)', $version | Set-Content \"$extensions_file\"",
-        "}"
+        "# 3. 清理所有 NSIS 遗留的无用目录 (以 $ 开头的目录，如 $PLUGINSDIR, $R0, $TEMP 等)",
+        "Get-ChildItem $dir -Directory -Force | Where-Object { $_.Name -match '^\\$' } | Remove-Item -Recurse -Force"
     ],
     "shortcuts": [
         [
@@ -66,17 +26,12 @@
             "WorkBuddy"
         ]
     ],
-    "persist": "data",
     "checkver": {
         "url": "https://www.codebuddy.cn/v2/update?platform=workbuddy-win32-x64-user",
         "jsonpath": "$.url",
-        "regex": "(?<url>.*WorkBuddy-win32-x64-user-(?<version>[\\d.]+-[\\w.]+)\\.exe)"
+        "regex": "WorkBuddy-win32-x64-user-(?<version>[\\d.]+-[\\w.]+)\\.exe"
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://download.codebuddy.cn/workbuddy/saas/win32-x64-user/WorkBuddy-win32-x64-user-$version.exe"
-            }
-        }
+        "url": "https://download.codebuddy.cn/workbuddy/saas/win32-x64-user/WorkBuddy-win32-x64-user-$version.exe"
     }
 }
