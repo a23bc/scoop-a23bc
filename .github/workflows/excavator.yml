@@ -1,0 +1,23 @@
+name: Excavator
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # 每 6 小时运行一次
+  workflow_dispatch: # 允许在 Actions 页面手动点击触发
+
+permissions:
+  contents: write # 必须赋予写入权限，否则无法推送代码
+
+jobs:
+  excavate:
+    name: Excavate
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Excavate
+        uses: ScoopInstaller/GithubActions@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SKIP_UPDATED: '1' # 忽略已经是最新版本的软件，节省运行时间
