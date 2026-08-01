@@ -23,7 +23,7 @@
     ]
   ],
   "checkver": {
-    "github": "Hypostasis-Cat/HypoMux"
+    "github": "https://github.com/Hypostasis-Cat/HypoMux"
   },
   "autoupdate": {
     "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v$version/HypoMux_Setup_$version.exe"
