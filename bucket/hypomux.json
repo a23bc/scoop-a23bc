@@ -1,36 +1,36 @@
 {
-  "version": "2.2.0",
-  "description": "HypoMux - Multi-NIC bandwidth aggregation download accelerator for Windows",
-  "homepage": "https://github.com/Hypostasis-Cat/HypoMux",
-  "license": "AGPL-3.0-only",
-  "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.2.0/HypoMux_Setup_2.2.0.exe",
-  "hash": "2e6547358cd50a218a60ccc789b08691124d1b65a912b5c4f43e54d50c6c34f0",
-  "innosetup": true,
-  "bin": [
-    [
-      "HypoMux.exe",
-      "hypomux"
+    "version": "2.5.1",
+    "description": "HypoMux - Multi-NIC bandwidth aggregation download accelerator for Windows",
+    "homepage": "https://github.com/Hypostasis-Cat/HypoMux",
+    "license": "AGPL-3.0-only",
+    "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.5.1/HypoMux_Setup_2.5.1.exe",
+    "hash": "27e751f4e4938813a8daccf401bc91ea3550d56fdf2d4801ea3508c6fd5b2e7e",
+    "innosetup": true,
+    "bin": [
+        [
+            "HypoMux.exe",
+            "hypomux"
+        ],
+        [
+            "diagnostic.exe",
+            "hypomux-diagnostic"
+        ]
     ],
-    [
-      "diagnostic.exe",
-      "hypomux-diagnostic"
+    "shortcuts": [
+        [
+            "HypoMux.exe",
+            "HypoMux"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/Hypostasis-Cat/HypoMux"
+    },
+    "autoupdate": {
+        "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v$version/HypoMux_Setup_$version.exe"
+    },
+    "notes": [
+        "HypoMux is distributed under AGPL-3.0-only.",
+        "Modified network service deployments must provide corresponding source code.",
+        "https://www.gnu.org/licenses/agpl-3.0.html"
     ]
-  ],
-  "shortcuts": [
-    [
-      "HypoMux.exe",
-      "HypoMux"
-    ]
-  ],
-  "checkver": {
-    "github": "https://github.com/Hypostasis-Cat/HypoMux"
-  },
-  "autoupdate": {
-    "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v$version/HypoMux_Setup_$version.exe"
-  },
-  "notes": [
-    "HypoMux is distributed under AGPL-3.0-only.",
-    "Modified network service deployments must provide corresponding source code.",
-    "https://www.gnu.org/licenses/agpl-3.0.html"
-  ]
 }
