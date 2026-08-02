@@ -38,6 +38,8 @@ scoop install hypomux
 | thunder | 多协议高速下载与云存储工具 | [迅雷官网](https://www.xunlei.com/) |
 | tubatools | DIY 硬件检测与系统维护工具箱 | [图吧工具箱官网](https://www.tbtool.cn/) |
 | workbuddy | 腾讯全场景 AI 办公效率助手 | [WorkBuddy官网](https://www.workbuddy.ai/)<br>🔄️自动更新 |
+| BDInfo Beta | 蓝光光盘音视频参数采集工具 | [VideoHelp 官网](https://www.videohelp.com/software/BDInfo)<br>🔄️自动更新 |
+| Oopz | 跨平台游戏语音社交客户端 | [Oopz 官网](https://www.oopz.cn/)<br>🔄️自动更新 |
 
 > ⚠️ 部分应用为第三方/修改版本，请自行评估风险并遵守原软件许可协议。
 
