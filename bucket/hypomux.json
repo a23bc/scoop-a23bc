@@ -5,20 +5,31 @@
     "license": "AGPL-3.0-only",
     "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.5.2/HypoMux_Setup_2.5.2.exe",
     "hash": "d2804d2ce155126a43d35589f38518523bcb0c0a93529e514a0206d63c4e07cc",
-    "innosetup": true,
+    "pre_install": [
+        "# 1. 使用 7-Zip 直接解压安装包",
+        "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
+        "if ($installer) { Expand-7zipArchive $installer.FullName $dir -Removal }",
+        "",
+        "# 2. 清理 NSIS 可能产生的临时垃圾文件夹 (如 $PLUGINSDIR)",
+        "Get-ChildItem $dir -Directory -Force | Where-Object { $_.Name -match '^\\$' } | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue",
+        "",
+        "# 3. 删除卸载程序，保持 Scoop 目录纯净",
+        "Remove-Item \"$dir\\uninstall.exe\" -Force -ErrorAction SilentlyContinue"
+    ],
     "bin": [
+        "hypomux.exe",
         [
-            "HypoMux.exe",
-            "hypomux"
+            "bin\\sing-box.exe",
+            "sing-box"
         ],
         [
-            "diagnostic.exe",
-            "hypomux-diagnostic"
+            "bin\\hypomux-engine.exe",
+            "hypomux-engine"
         ]
     ],
     "shortcuts": [
         [
-            "HypoMux.exe",
+            "hypomux.exe",
             "HypoMux"
         ]
     ],
