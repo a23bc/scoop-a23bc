@@ -1,0 +1,25 @@
+{
+    "version": "0.62.0",
+    "description": "Better Genshin Impact - A Genshin Impact assistant based on computer vision.",
+    "homepage": "https://github.com/babalae/better-genshin-impact",
+    "license": "AGPL-3.0-only",
+    "url": "https://github.com/babalae/better-genshin-impact/releases/download/0.62.0/BetterGI_v0.62.0.7z",
+    "hash": "11ccb62b7580dfdf15950300415cbde57181e5352dd817040bef2f9bc58bbb89",
+    "extract_dir": "BetterGI",
+    "shortcuts": [
+        [
+            "BetterGI.exe",
+            "BetterGI"
+        ]
+    ],
+    "persist": [
+        "log",
+        "config",
+        "screen"
+    ],
+    "checkver": "https://github.com/babalae/better-genshin-impact",
+    "autoupdate": {
+        "url": "https://github.com/babalae/better-genshin-impact/releases/download/$version/BetterGI_v$version.7z"
+    },
+    "notes": "BetterGI 涉及图像识别和键鼠模拟，如果运行无响应或功能失效，请尝试【以管理员身份运行】。"
+}
