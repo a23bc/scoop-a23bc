@@ -12,6 +12,9 @@
             "Stelliberty"
         ]
     ],
+    "persist": [
+        "data"
+    ],
     "checkver": {
         "github": "https://github.com/Kindness-Kismet/stelliberty"
     },
