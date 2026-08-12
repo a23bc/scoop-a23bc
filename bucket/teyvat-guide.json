@@ -20,7 +20,7 @@
         ]
     ],
     "checkver": {
-        "url": "https://github.com/BTMuli/TeyvatGuide"
+        "github": "https://github.com/BTMuli/TeyvatGuide"
     },
     "autoupdate": {
         "url": "https://github.com/BTMuli/TeyvatGuide/releases/download/v$version/TeyvatGuide_$version_x64_zh-CN.msi"
