@@ -17,7 +17,9 @@
         "config",
         "screen"
     ],
-    "checkver": "https://github.com/babalae/better-genshin-impact",
+    "checkver": {
+        "github": "https://github.com/babalae/better-genshin-impact"
+    },
     "autoupdate": {
         "url": "https://github.com/babalae/better-genshin-impact/releases/download/$version/BetterGI_v$version.7z"
     },
