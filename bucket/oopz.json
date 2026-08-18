@@ -1,10 +1,10 @@
 {
-    "version": "1.4.4",
+    "version": "1.4.5",
     "description": "Oopz application",
     "homepage": "https://www.oopz.cn/",
     "license": "Unknown",
-    "url": "https://downloadcdn.oopz.cn/release/144/oopz_setup_v1.4.4.exe",
-    "hash": "7af59bde80d9f49bc972bdbdb5a05ac65e392d2f81d775259b3576a1c247d77c",
+    "url": "https://downloadcdn.oopz.cn/release/145/oopz_setup_v1.4.5.exe",
+    "hash": "69e648d9e795ccf2c297936b06cf29cfdf73e9adcbb868b4afcd4055b05a6610",
     "pre_install": [
         "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
         "if ($installer) { Expand-7zipArchive $installer.FullName $dir -Removal }",
