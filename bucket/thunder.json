@@ -41,7 +41,7 @@
     ],
     "checkver": {
         "url": "https://pc.xunlei.com/",
-        "regex": "ThunderSetup(?<version>[\\d.]+)xl\\.exe"
+        "regex": "XunLeiWebSetup(?<version>[\\d.]+)xl11\\.exe"
     },
     "autoupdate": {
         "architecture": {
