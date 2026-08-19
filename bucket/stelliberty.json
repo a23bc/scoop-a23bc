@@ -1,10 +1,10 @@
 {
-    "version": "2.0.24",
+    "version": "2.0.25",
     "description": "A modern Clash/Mihomo GUI client.",
     "homepage": "https://github.com/Kindness-Kismet/stelliberty",
     "license": "Freeware",
-    "url": "https://github.com/Kindness-Kismet/stelliberty/releases/download/v2.0.24/stelliberty-v2.0.24-win-x64.zip",
-    "hash": "20ac1249b9a5a987c7d00bbb22aa6a23d76bf64023db0e8dae04cc9ee830aae5",
+    "url": "https://github.com/Kindness-Kismet/stelliberty/releases/download/v2.0.25/stelliberty-v2.0.25-win-x64.zip",
+    "hash": "a6c4db7d9af3fc5a3e34c632b2b832472f5e9819df1a53ced6f7c7a3890a007d",
     "bin": "stelliberty.exe",
     "shortcuts": [
         [
