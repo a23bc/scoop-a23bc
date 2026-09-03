@@ -1,10 +1,10 @@
 {
-    "version": "5.5.2.37672479-2b0177c3",
+    "version": "5.4.7.37521366-b148bd1d",
     "description": "An AI-native desktop Agent WorkBench",
     "homepage": "https://www.codebuddy.cn/work/",
     "license": "Proprietary",
-    "url": "https://download.codebuddy.cn/workbuddy/saas/win32-x64-user/WorkBuddy-win32-x64-user-5.5.2.37672479-2b0177c3.exe",
-    "hash": "ab8b2cd10218e584b51c2f6975fe0c3e05fd724b85f761242f46b95860986d58",
+    "url": "https://download.codebuddy.cn/workbuddy/saas/win32-x64-user/WorkBuddy-win32-x64-user-5.4.7.37521366-b148bd1d.exe",
+    "hash": "17f22223b561e81164f0ba9c0ccb47664e2872566caa37000bc1be697df33d13",
     "pre_install": [
         "# 1. 解压外层 NSIS 安装包",
         "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
