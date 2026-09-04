@@ -1,10 +1,10 @@
 {
-    "version": "2.5.8",
+    "version": "2.5.9",
     "description": "HypoMux - Multi-NIC bandwidth aggregation download accelerator for Windows",
     "homepage": "https://github.com/Hypostasis-Cat/HypoMux",
     "license": "AGPL-3.0-only",
-    "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.5.8/HypoMux_Setup_2.5.8.exe",
-    "hash": "f4c1c7a5c531f277cb6d386d4bb89a1424c2e632242acdb156b47a79d3f00b03",
+    "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.5.9/HypoMux_Setup_2.5.9.exe",
+    "hash": "02ae4d8af8cb8e425dc209a682cb0006826fafbb2027a627a8f11c39ccd4705b",
     "pre_install": [
         "# 1. 使用 7-Zip 直接解压安装包",
         "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
