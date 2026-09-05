@@ -1,11 +1,11 @@
 {
     "version": "0.8.0.1b",
     "description": "The BDInfo tool was designed to collect video and audio technical specifications from Blu-ray movie discs (Beta).",
-    "homepage": "https://www.videohelp.com/software/BDInfo",
+    "homepage": "https://github.com/UniqProject/BDInfo",
     "license": "Freeware",
     "architecture": {
         "64bit": {
-            "url": "https://www.videohelp.com/download/BDInfo_v0.8.0.1b-win-x64.zip",
+            "url": "https://github.com/UniqProject/BDInfo/releases/download/v0.8.0.1b/BDInfo_v0.8.0.1b-win-x64.zip",
             "hash": "1ec81daea237c75627d896afc13f9ee2fb642f8b81fa2b65eef600e1095548f0"
         }
     },
@@ -16,13 +16,13 @@
         ]
     ],
     "checkver": {
-        "url": "https://www.videohelp.com/software/BDInfo",
-        "regex": "BDInfo_v(?<version>[\\d\\.]+[a-z])-win-x64\\.zip"
+        "url": "https://api.github.com/repos/UniqProject/BDInfo/releases",
+        "regex": "\"tag_name\":\\s*\"v([^\"]+)\"[\\s\\S]*?\"name\":\\s*\"BDInfo_v[^\"]+-win-x64\\.zip\""
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://www.videohelp.com/download/BDInfo_v$version-win-x64.zip"
+                "url": "https://github.com/UniqProject/BDInfo/releases/download/v$version/BDInfo_v$version-win-x64.zip"
             }
         }
     }
