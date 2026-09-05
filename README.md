@@ -32,15 +32,16 @@ scoop install hypomux
 | bettergi | 原神自动化辅助工具 | [babalae/better-genshin-impact](https://github.com/babalae/better-genshin-impact)<br>🔄️自动更新 |
 | bdinfo-beta | 蓝光光盘音视频参数采集工具 | [VideoHelp 官网](https://www.videohelp.com/software/BDInfo)<br>🔄️自动更新 |
 | hypomux | 高性能网络加速与复用工具 | [Hypostasis-Cat/HypoMux](https://github.com/Hypostasis-Cat/HypoMux)<br>🔄️自动更新 |
+| mio-kitchen | Android ROM工具 | [ColdWindScholar/MIO-KITCHEN-SOURCE](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE)<br/>🔄️自动更新 |
 | oopz | 跨平台游戏语音社交客户端 | [Oopz 官网](https://www.oopz.cn/)<br>🔄️自动更新 |
 | qobuzdownloaderx | Qobuz 高解析度无损音乐下载器 | [ImAiiR/QobuzDownloaderX](https://github.com/ImAiiR/QobuzDownloaderX)<br>🔄️自动更新 |
 | qobuzdownloaderx-mod | Qobuz 音乐下载器 (MOD 增强版) | [DJDoubleD/QobuzDownloaderX-MOD](https://github.com/DJDoubleD/QobuzDownloaderX-MOD)<br>🔄️自动更新 |
 | qoder | 基于通义千问的 AI 原生 IDE | [Qoder官网](https://qoder.com/)<br>🔄️自动更新 |
 | qwen-studio | Qwen AI 官方桌面客户端 | [Qwen官网](https://qwen.ai/)<br>🔄️自动更新 |
 | stelliberty | 现代化跨平台网络代理客户端 | [Kindness-Kismet/stelliberty](https://github.com/Kindness-Kismet/stelliberty)<br>🔄️自动更新 |
-| thunder | 多协议高速下载与云存储工具 | [迅雷官网](https://www.xunlei.com/) |
+| thunder | 多协议高速下载与云存储工具 | [迅雷官网](https://www.xunlei.com/)<br/>🔄️自动更新 |
 | teyvat-guide | 原神数据辅助工具 | [BTMuli/TeyvatGuide](https://github.com/BTMuli/TeyvatGuide)<br>🔄️自动更新 |
-| tubatools | DIY 硬件检测与系统维护工具箱 | [图吧工具箱官网](https://www.tbtool.cn/) |
+| tubatools | DIY 硬件检测与系统维护工具箱 | [图吧工具箱官网](https://www.tbtool.cn/)<br/>🔄️自动更新 |
 | workbuddy | 腾讯全场景 AI 办公效率助手 | [WorkBuddy官网](https://www.workbuddy.ai/)<br>🔄️自动更新 |
 |  |  |  |
 
