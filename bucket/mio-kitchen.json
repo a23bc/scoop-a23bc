@@ -1,0 +1,24 @@
+{
+    "version": "4.2.1",
+    "description": "A graphical tool for Android ROM customization (unpacking, repacking, and flashing).",
+    "homepage": "https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE",
+    "license": "AGPL-3.0",
+    "url": "https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE/releases/download/CI_BUILD_524/MIO-KITCHEN-4.2.1-win.zip",
+    "hash": "9e997e7b9603a8a391d345e8de5cbbddac059eb3096fd4351be5a2e93c081502",
+    "shortcuts": [
+        [
+            "tool.exe",
+            "MIO-KITCHEN"
+        ]
+    ],
+    "persist": [
+        "bin\\setting.ini"
+    ],
+    "checkver": {
+        "url": "https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE/releases",
+        "regex": "/releases/download/(?<tag>[^\"]+)/MIO-KITCHEN-([\\d\\.]+)-win\\.zip"
+    },
+    "autoupdate": {
+        "url": "https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE/releases/download/$matchTag/MIO-KITCHEN-$version-win.zip"
+    }
+}
