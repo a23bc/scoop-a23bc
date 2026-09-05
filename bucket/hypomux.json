@@ -1,35 +1,32 @@
 {
     "version": "2.5.9",
-    "description": "HypoMux - Multi-NIC bandwidth aggregation download accelerator for Windows",
-    "homepage": "https://github.com/Hypostasis-Cat/HypoMux",
-    "license": "AGPL-3.0-only",
+    "description": "CN Windows 多网卡聚合与网络加速工具。一键融合有线、Wi-Fi、热点等连接，实现多路径传输与智能流量调度。 EN Windows multi-NIC network accelerator. Combine Ethernet, Wi-Fi, hotspots and more for multi-path transmission and smart traffic routing.",
+    "homepage": "https://hypomux.com",
+    "license": "AGPL-3.0",
     "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.5.9/HypoMux_Setup_2.5.9.exe",
-    "hash": "02ae4d8af8cb8e425dc209a682cb0006826fafbb2027a627a8f11c39ccd4705b",
+    "hash": "",
     "pre_install": [
-        "# 1. 使用 7-Zip 直接解压安装包",
         "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
         "if ($installer) { Expand-7zipArchive $installer.FullName $dir -Removal }",
         "",
-        "# 2. 清理 NSIS 可能产生的临时垃圾文件夹 (如 $PLUGINSDIR)",
-        "Get-ChildItem $dir -Directory -Force | Where-Object { $_.Name -match '^\\$' } | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue",
+        "$pluginDir = Get-ChildItem $dir -Directory -Force | Where-Object { $_.Name -match 'PLUGINSDIR|_OUTDIR' } | Select-Object -First 1",
+        "if ($pluginDir) {",
+        "    $archive = Get-ChildItem $pluginDir.FullName -Filter '*.7z' -ErrorAction SilentlyContinue | Select-Object -First 1",
+        "    if ($archive) { Expand-7zipArchive $archive.FullName $dir -Removal }",
+        "}",
         "",
-        "# 3. 删除卸载程序，保持 Scoop 目录纯净",
-        "Remove-Item \"$dir\\uninstall.exe\" -Force -ErrorAction SilentlyContinue"
-    ],
-    "bin": [
-        "hypomux.exe",
-        [
-            "bin\\sing-box.exe",
-            "sing-box"
-        ],
-        [
-            "bin\\hypomux-engine.exe",
-            "hypomux-engine"
-        ]
+        "if (Test-Path \"$dir\\{app}\") {",
+        "    Get-ChildItem \"$dir\\{app}\" -Force | Move-Item -Destination $dir -Force",
+        "    Remove-Item \"$dir\\{app}\" -Recurse -Force",
+        "}",
+        "",
+        "Get-ChildItem $dir -Directory -Force | Where-Object { $_.Name -match '^\\$' } | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue",
+        "Get-ChildItem $dir -Filter 'uninst*.exe' -Recurse -ErrorAction SilentlyContinue | Remove-Item -Force",
+        "Get-ChildItem $dir -Filter 'uninstall*.exe' -Recurse -ErrorAction SilentlyContinue | Remove-Item -Force"
     ],
     "shortcuts": [
         [
-            "hypomux.exe",
+            "HypoMux.exe",
             "HypoMux"
         ]
     ],
@@ -38,10 +35,5 @@
     },
     "autoupdate": {
         "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v$version/HypoMux_Setup_$version.exe"
-    },
-    "notes": [
-        "HypoMux is distributed under AGPL-3.0-only.",
-        "Modified network service deployments must provide corresponding source code.",
-        "https://www.gnu.org/licenses/agpl-3.0.html"
-    ]
+    }
 }
