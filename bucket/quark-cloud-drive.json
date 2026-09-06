@@ -1,0 +1,34 @@
+{
+    "version": "7.1.5.784",
+    "description": "夸克网盘 电脑高效拍档 一键存爽快看",
+    "homepage": "https://pan.quark.cn/",
+    "license": "Proprietary",
+    "url": "https://sw.pcmgr.qq.com/6332138045d20a051597d76f0024405f/6a9cfd52/spcmgr/download/QuarkCloudDrivePC_V7.1.5.784_pc_pf30001_(zh-cn)_release.exe",
+    "hash": "cac7a7a56c8886a24d385f8e06a535c894dd0b2496bba8209962d00c6072cb71",
+    "##_size": "320693488",
+    "innosetup": true,
+    "installer": {
+        "script": [
+            "Move-Item -LiteralPath \"$dir\\{code_GetAppExeDestName}\" -Destination \"$dir\\quark_cloud_drive.exe\"",
+            "Move-Item -LiteralPath \"$dir\\{code_GetAppProxyExeDestName}\" -Destination \"$dir\\quark_cloud_drive_proxy.exe\"",
+            "Move-Item -LiteralPath \"$dir\\components\\clouddrive_desktop_widget_independent\\{code_GetAppWidgetExeName}\" -Destination \"$dir\\components\\clouddrive_desktop_widget_independent\\clouddrive_desktop_widget_independent.exe\""
+        ]
+    },
+    "shortcuts": [
+        [
+            "quark_cloud_drive.exe",
+            "夸克网盘"
+        ]
+    ],
+    "checkver": {
+        "script": [
+            "$resp = Invoke-WebRequest -UseBasicParsing -Uri 'https://luban.m.qq.com/api/public/software-manager/softwareProxy' -Body 'cmdid=3318&jprxReq%5Breq%5D%5Bsoft_id_list%5D%5B%5D=30714' -Method 'POST'",
+            "Write-Output $resp.Content"
+        ],
+        "regex": "\"ver_name\":\"([\\d.]+)\".+\"file_size\":\"(?<size>\\d+)\".+\"download_https_url\":\"https://(?<url>.+?\\.exe)\""
+    },
+    "autoupdate": {
+        "url": "https://$matchUrl",
+        "##_size": "$matchSize"
+    }
+}

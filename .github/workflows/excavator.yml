@@ -2,22 +2,108 @@ name: Excavator
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # 每 6 小时运行一次
-  workflow_dispatch: # 允许在 Actions 页面手动点击触发
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
 
 permissions:
-  contents: write # 必须赋予写入权限，否则无法推送代码
+  contents: write
 
 jobs:
-  excavate:
-    name: Excavate
+  quark:
+    name: Smart update quark-cloud-drive
     runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
+      - name: Smart update with Health Check
+        shell: pwsh
+        run: |
+          $manifestPath = "bucket/quark-cloud-drive.json"
+
+          # 1. 请求腾讯接口获取最新信息
+          $body = 'cmdid=3318&jprxReq%5Breq%5D%5Bsoft_id_list%5D%5B%5D=30714'
+          $resp = Invoke-RestMethod -Uri 'https://luban.m.qq.com/api/public/software-manager/softwareProxy' -Method POST -Body $body
+          $soft = $resp.resp.soft_list[0]
+
+          $latestUrl  = $soft.download_https_url
+          $latestSize = $soft.file_size
+          $latestVer  = $soft.ver_name
+          Write-Host "API: version=$latestVer size=$latestSize"
+
+          # 2. 读取当前 manifest
+          $json = Get-Content $manifestPath -Raw | ConvertFrom-Json
+          $oldUrl  = $json.url
+          $oldSize = $json.'##_size'
+
+          # 3. 探活：检查旧 URL 是否还活着
+          # 使用 curl 发送 Range 请求 (只下载第 1 个字节)，避免触发 HEAD 拦截，且不消耗流量
+          $httpCode = curl.exe -s -o NUL -w "%{http_code}" -r 0-0 -m 10 "$oldUrl"
+          $isOldUrlAlive = ($httpCode -eq "200" -or $httpCode -eq "206")
+          
+          if ($isOldUrlAlive) {
+              Write-Host "Old URL is still alive (HTTP $httpCode)."
+          } else {
+              Write-Host "Old URL is dead (HTTP $httpCode)."
+          }
+
+          # 4. 核心判断逻辑
+          if ($latestSize -ne $oldSize) {
+              # 【真实更新】文件变大/变小了，必须下载算 Hash
+              Write-Host "Real update detected! Size changed ($oldSize -> $latestSize). Downloading..."
+              $tmp = Join-Path $env:TEMP "quark_$latestVer.exe"
+              Invoke-WebRequest -Uri $latestUrl -OutFile $tmp -UseBasicParsing
+              $json.hash = (Get-FileHash $tmp -Algorithm SHA256).Hash.ToLower()
+              Remove-Item $tmp
+
+              $json.url = $latestUrl
+              $json.'##_size' = "$latestSize"
+
+              $baseVer = $json.version -replace '\.\d{8}$', ''
+              if ($latestVer -ne $baseVer) {
+                  $json.version = $latestVer
+              } else {
+                  $json.version = "$latestVer.$(Get-Date -Format 'yyyyMMdd')"
+              }
+
+              $json | ConvertTo-Json -Depth 10 | Set-Content $manifestPath -Encoding utf8
+              Write-Host "Updated to $($json.version)"
+
+          } elseif (-not $isOldUrlAlive) {
+              # 【假更新，但旧链失效】文件没变，但旧链接死了，需要换链接
+              Write-Host "No real update, but old URL is dead. Rotating to new URL..."
+              $json.url = $latestUrl
+              $json | ConvertTo-Json -Depth 10 | Set-Content $manifestPath -Encoding utf8
+
+          } else {
+              # 【一切正常】文件没变，旧链接也还活着，直接退出，不产生任何变更
+              Write-Host "No real update, and old URL is alive. Doing nothing."
+              exit 0
+          }
+
+      - name: Commit
+        shell: pwsh
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add bucket/quark-cloud-drive.json
+          if (git diff --staged --quiet) {
+              Write-Host 'No quark changes.'
+          } else {
+              git commit -m 'quark-cloud-drive: refresh url/hash'
+              git push
+          }
+
+  excavate:
+    name: Excavate other apps
+    needs: quark
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Excavate
         uses: ScoopInstaller/GithubActions@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SKIP_UPDATED: '1' # 忽略已经是最新版本的软件，节省运行时间
+          SKIP_UPDATED: '1'
