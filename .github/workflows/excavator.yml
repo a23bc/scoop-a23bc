@@ -37,14 +37,19 @@ jobs:
           $oldSize = $json.'##_size'
 
           # 3. 探活：检查旧 URL 是否还活着
-          # 使用 curl 发送 Range 请求 (只下载第 1 个字节)，避免触发 HEAD 拦截，且不消耗流量
-          $httpCode = curl.exe -s -o NUL -w "%{http_code}" -r 0-0 -m 10 "$oldUrl"
+          # 增加 User-Agent 和 Referer 伪装成正常浏览器，防止腾讯 CDN 拦截 GitHub 数据中心 IP
+          $ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+          $referer = "https://pc.qq.com/"
+          
+          Write-Host "Checking old URL health..."
+          $httpCode = curl.exe -s -o NUL -w "%{http_code}" -r 0-0 -m 15 -A "$ua" -e "$referer" "$oldUrl"
+          
           $isOldUrlAlive = ($httpCode -eq "200" -or $httpCode -eq "206")
           
           if ($isOldUrlAlive) {
               Write-Host "Old URL is still alive (HTTP $httpCode)."
           } else {
-              Write-Host "Old URL is dead (HTTP $httpCode)."
+              Write-Host "Old URL is dead or blocked (HTTP $httpCode)."
           }
 
           # 4. 核心判断逻辑
