@@ -1,6 +1,6 @@
 {
     "version": "2.0.30",
-    "description": "A modern Clash/Mihomo GUI client.",
+    "description": "A high-performance, visually appealing, and modern cross-platform network client (Clash/Mihomo GUI).",
     "homepage": "https://github.com/Kindness-Kismet/stelliberty",
     "license": "Freeware",
     "url": "https://github.com/Kindness-Kismet/stelliberty/releases/download/v2.0.30/stelliberty-v2.0.30-win-x64.zip",
@@ -12,19 +12,22 @@
             "Stelliberty"
         ]
     ],
-    "persist": "data",
+    "pre_install": [
+        "# 关键修复：确保 settings.json 作为文件存在，防止 Scoop 将其误建为文件夹",
+        "if (-not (Test-Path \"$dir\\data\\settings.json\")) {",
+        "    New-Item -ItemType File -Path \"$dir\\data\\settings.json\" -Force | Out-Null",
+        "}"
+    ],
+    "persist": [
+        "data\\settings.json",
+        "data\\subscriptions",
+        "data\\runtime"
+    ],
     "checkver": {
         "github": "https://github.com/Kindness-Kismet/stelliberty"
     },
     "autoupdate": {
         "url": "https://github.com/Kindness-Kismet/stelliberty/releases/download/v$version/stelliberty-v$version-win-x64.zip"
     },
-    "notes": [
-        "⚠️ License Notice:",
-        "This software is licensed under a custom NON-COMMERCIAL license.",
-        "- No commercial use allowed (selling, monetizing, paid services, etc.)",
-        "- Modified versions must be open-sourced under the same license",
-        "- Derivative works must remove all 'Stelliberty' branding/identifiers",
-        "See: https://github.com/Kindness-Kismet/stelliberty/blob/main/LICENSE"
-    ]
+    "notes": "Stelliberty requires .NET 11 Runtime to run. If it fails to start, please install .NET 11 Runtime from Microsoft."
 }
