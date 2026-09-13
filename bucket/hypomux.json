@@ -1,9 +1,9 @@
 {
-    "version": "2.5.9",
+    "version": "2.6.0",
     "description": "CN Windows 多网卡聚合与网络加速工具。一键融合有线、Wi-Fi、热点等连接，实现多路径传输与智能流量调度。 EN Windows multi-NIC network accelerator. Combine Ethernet, Wi-Fi, hotspots and more for multi-path transmission and smart traffic routing.",
     "homepage": "https://hypomux.com",
     "license": "AGPL-3.0",
-    "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.5.9/HypoMux_Setup_2.5.9.exe",
+    "url": "https://github.com/Hypostasis-Cat/HypoMux/releases/download/v2.6.0/HypoMux_Setup_2.6.0.exe",
     "hash": "",
     "pre_install": [
         "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
