@@ -1,10 +1,10 @@
 {
-    "version": "2.0.30",
+    "version": "2.0.31",
     "description": "A high-performance, visually appealing, and modern cross-platform network client (Clash/Mihomo GUI).",
     "homepage": "https://github.com/Kindness-Kismet/stelliberty",
     "license": "Freeware",
-    "url": "https://github.com/Kindness-Kismet/stelliberty/releases/download/v2.0.30/stelliberty-v2.0.30-win-x64.zip",
-    "hash": "c93fa97c9b4630e687edc94c2a81e7b2eb561e8031f134c00560c4cca6e7eddf",
+    "url": "https://github.com/Kindness-Kismet/stelliberty/releases/download/v2.0.31/stelliberty-v2.0.31-win-x64.zip",
+    "hash": "f7485c3c800cad934cb307ca449de5085637d44b993222930499f4d015279e1b",
     "bin": "stelliberty.exe",
     "shortcuts": [
         [
