@@ -1,34 +1,34 @@
 {
-    "version": "7.2.0.800",
-    "description": "夸克网盘 电脑高效拍档 一键存爽快看",
-    "homepage": "https://pan.quark.cn/",
-    "license": "Proprietary",
-    "url": "https://sw.pcmgr.qq.com/65f98ec87fd5034334e7b914c6319c3f/6aabc8ec/spcmgr/download/QuarkCloudDrivePC_V7.2.0.800_pc_pf30001_(zh-cn)_release_(Build3181715-1000-x64).exe",
-    "hash": "aa77c7e6b56f33001232045889f4532e30ad3273c03495c3494bae31ec78f57e",
-    "##_size": "323829904",
-    "innosetup": true,
-    "installer": {
-        "script": [
-            "Move-Item -LiteralPath \"$dir\\{code_GetAppExeDestName}\" -Destination \"$dir\\quark_cloud_drive.exe\"",
-            "Move-Item -LiteralPath \"$dir\\{code_GetAppProxyExeDestName}\" -Destination \"$dir\\quark_cloud_drive_proxy.exe\"",
-            "Move-Item -LiteralPath \"$dir\\components\\clouddrive_desktop_widget_independent\\{code_GetAppWidgetExeName}\" -Destination \"$dir\\components\\clouddrive_desktop_widget_independent\\clouddrive_desktop_widget_independent.exe\""
-        ]
-    },
-    "shortcuts": [
-        [
-            "quark_cloud_drive.exe",
-            "夸克网盘"
-        ]
+  "version": "7.2.0.800",
+  "description": "夸克网盘 电脑高效拍档 一键存爽快看",
+  "homepage": "https://pan.quark.cn/",
+  "license": "Proprietary",
+  "url": "https://sw.pcmgr.qq.com/e23354c340cf3afcbc5626b8ac721f41/6aac547a/spcmgr/download/QuarkCloudDrivePC_V7.2.0.800_pc_pf30001_(zh-cn)_release_(Build3181715-1000-x64).exe",
+  "hash": "aa77c7e6b56f33001232045889f4532e30ad3273c03495c3494bae31ec78f57e",
+  "##_size": "323829904",
+  "innosetup": true,
+  "installer": {
+    "script": [
+      "Move-Item -LiteralPath \"$dir\\{code_GetAppExeDestName}\" -Destination \"$dir\\quark_cloud_drive.exe\"",
+      "Move-Item -LiteralPath \"$dir\\{code_GetAppProxyExeDestName}\" -Destination \"$dir\\quark_cloud_drive_proxy.exe\"",
+      "Move-Item -LiteralPath \"$dir\\components\\clouddrive_desktop_widget_independent\\{code_GetAppWidgetExeName}\" -Destination \"$dir\\components\\clouddrive_desktop_widget_independent\\clouddrive_desktop_widget_independent.exe\""
+    ]
+  },
+  "shortcuts": [
+    [
+      "quark_cloud_drive.exe",
+      "夸克网盘"
+    ]
+  ],
+  "checkver": {
+    "script": [
+      "$resp = Invoke-WebRequest -UseBasicParsing -Uri 'https://luban.m.qq.com/api/public/software-manager/softwareProxy' -Body 'cmdid=3318&jprxReq%5Breq%5D%5Bsoft_id_list%5D%5B%5D=30714' -Method 'POST'",
+      "Write-Output $resp.Content"
     ],
-    "checkver": {
-        "script": [
-            "$resp = Invoke-WebRequest -UseBasicParsing -Uri 'https://luban.m.qq.com/api/public/software-manager/softwareProxy' -Body 'cmdid=3318&jprxReq%5Breq%5D%5Bsoft_id_list%5D%5B%5D=30714' -Method 'POST'",
-            "Write-Output $resp.Content"
-        ],
-        "regex": "\"ver_name\":\"([\\d.]+)\".+\"file_size\":\"(?<size>\\d+)\".+\"download_https_url\":\"https://(?<url>.+?\\.exe)\""
-    },
-    "autoupdate": {
-        "url": "https://$matchUrl",
-        "##_size": "$matchSize"
-    }
+    "regex": "\"ver_name\":\"([\\d.]+)\".+\"file_size\":\"(?<size>\\d+)\".+\"download_https_url\":\"https://(?<url>.+?\\.exe)\""
+  },
+  "autoupdate": {
+    "url": "https://$matchUrl",
+    "##_size": "$matchSize"
+  }
 }
