@@ -1,0 +1,35 @@
+{
+    "version": "0.1.0",
+    "description": "Cross-platform desktop GUI for ipatool — search the App Store, browse versions, download .ipa/.pkg with a resumable queue.",
+    "homepage": "https://github.com/a23bc/ipatool-gui",
+    "license": "MIT",
+    "url": "https://github.com/a23bc/ipatool-gui/releases/download/v0.1.0/ipatool-gui-0.1.0-win-x64.exe",
+    "hash": "6bb458a839aef50ecef864186bdb52c97e0ab9ebf087a101119c2036d957e6c3",
+    "bin": [
+        [
+            "IPATool GUI.exe",
+            "ipatool-gui"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "IPATool GUI.exe",
+            "IPATool GUI"
+        ]
+    ],
+    "pre_install": [
+        "# ipatool-gui 的 win 包是 NSIS 外壳包裹的便携程序：解包内嵌的 app-64.7z 还原便携目录",
+        "$exe = Get-ChildItem \"$dir\" -Filter '*.exe' | Select-Object -First 1",
+        "Expand-7zipArchive $exe.FullName \"$dir\\_nsis\"",
+        "$inner = Join-Path \"$dir\\_nsis\" '$PLUGINSDIR\\app-64.7z'",
+        "Expand-7zipArchive $inner \"$dir\" -Removal",
+        "Remove-Item \"$dir\\_nsis\" -Recurse -Force",
+        "Remove-Item $exe.FullName -Force"
+    ],
+    "checkver": {
+        "github": "https://github.com/a23bc/ipatool-gui"
+    },
+    "autoupdate": {
+        "url": "https://github.com/a23bc/ipatool-gui/releases/download/v$version/ipatool-gui-$version-win-x64.exe"
+    }
+}

@@ -32,6 +32,7 @@ scoop install hypomux
 | bettergi | 原神自动化辅助工具 | [babalae/better-genshin-impact](https://github.com/babalae/better-genshin-impact)<br>🔄️自动更新 |
 | bdinfo-beta | 蓝光光盘音视频参数采集工具 | [VideoHelp 官网](https://www.videohelp.com/software/BDInfo)<br>🔄️自动更新 |
 | hypomux | 高性能网络加速与复用工具 | [Hypostasis-Cat/HypoMux](https://github.com/Hypostasis-Cat/HypoMux)<br>🔄️自动更新 |
+| ipatool-gui | ipatool 跨平台桌面 GUI — App Store 搜索、版本浏览、.ipa/.pkg 断点续传下载 | [a23bc/ipatool-gui](https://github.com/a23bc/ipatool-gui)<br>🔄️自动更新 |
 | miflash | 小米官方线刷工具 (Mi Flash) |  |
 | miflash_unlock | 小米官方 Bootloader 解锁工具 (Mi Unlock) | [Mi Unlock 官网](https://www.miui.com/unlock/index.html)<br/>🔄️自动更新 |
 | mio-kitchen | Android ROM工具 | [ColdWindScholar/MIO-KITCHEN-SOURCE](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE)<br/>🔄️自动更新 |
