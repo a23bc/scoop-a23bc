@@ -1,0 +1,14 @@
+{
+    "version": "20200314",
+    "description": "Xiaomi Mi Flash Tool — official utility to flash Fastboot ROMs (images) onto Xiaomi devices.",
+    "license": "Proprietary",
+    "url": "https://cdn.alsgp0.fds.api.mi-img.com/micomm/MiFlash2020-3-14-0.rar",
+    "hash": "a3d924293e1dfa40163ac76241b16f176025cff6e8c9dbfa3b5e16e9969391a5",
+    "bin": "XiaoMiFlash.exe",
+    "shortcuts": [
+        [
+            "XiaoMiFlash.exe",
+            "MiFlash"
+        ]
+    ]
+}
