@@ -33,6 +33,7 @@ scoop install hypomux
 | bdinfo-beta | 蓝光光盘音视频参数采集工具 | [VideoHelp 官网](https://www.videohelp.com/software/BDInfo)<br>🔄️自动更新 |
 | hypomux | 高性能网络加速与复用工具 | [Hypostasis-Cat/HypoMux](https://github.com/Hypostasis-Cat/HypoMux)<br>🔄️自动更新 |
 | miflash | 小米官方线刷工具 (Mi Flash) |  |
+| miflash_unlock | 小米官方 Bootloader 解锁工具 (Mi Unlock) | [Mi Unlock 官网](https://www.miui.com/unlock/index.html)<br/>🔄️自动更新 |
 | mio-kitchen | Android ROM工具 | [ColdWindScholar/MIO-KITCHEN-SOURCE](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE)<br/>🔄️自动更新 |
 | oopz | 跨平台游戏语音社交客户端 | [Oopz 官网](https://www.oopz.cn/)<br>🔄️自动更新 |
 | qobuzdownloaderx | Qobuz 高解析度无损音乐下载器 | [ImAiiR/QobuzDownloaderX](https://github.com/ImAiiR/QobuzDownloaderX)<br>🔄️自动更新 |
