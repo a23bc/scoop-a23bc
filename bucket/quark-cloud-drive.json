@@ -1,11 +1,11 @@
 {
-  "version": "7.2.2.806",
+  "version": "7.3.5.810",
   "description": "夸克网盘 电脑高效拍档 一键存爽快看",
   "homepage": "https://pan.quark.cn/",
   "license": "Proprietary",
-  "url": "https://sw.pcmgr.qq.com/126da215fd7b99179dcf9329f216f191/6ac81fcf/spcmgr/download/QuarkCloudDrivePC_V7.2.2.806_pc_pf30001_(zh-cn)_release_(Build3191103-1000-x64).exe",
-  "hash": "8daa401daee4f6612e640f9eb2e761b3cf1ac3a7e65758196297186411f04c4d",
-  "##_size": "323829240",
+  "url": "https://sw.pcmgr.qq.com/a9aadef530f911dd7be6bbf33da1219b/6ac8715c/spcmgr/download/QuarkCloudDrivePC_V7.3.5.810_pc_pf30001_(zh-cn)_release_(Build3207995-1000-x64).exe",
+  "hash": "fb1f6632f7c28bab41b84e3111f1726031782d98ef683abebba0fd432211a34a",
+  "##_size": "324742376",
   "innosetup": true,
   "installer": {
     "script": [
