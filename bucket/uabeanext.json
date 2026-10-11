@@ -1,0 +1,38 @@
+
+{
+    "version": "nightly",
+    "description": "A research and modding tool for SerializedFiles and Asset Bundles",
+    "homepage": "https://github.com/nesrak1/UABEANext",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://nightly.link/nesrak1/UABEANext/workflows/build-windows/master/uabea-windows.zip",
+            "hash": "skip"
+        }
+    },
+    
+    "bin": [
+        [
+            "UABEANext4.Desktop.exe",
+            "uabeanext"
+        ]
+    ],
+    "shortcuts": [
+        [
+        "UABEANext4.Desktop.exe",
+        "UABEANext"
+        ]
+    ],
+    "checkver": {
+        "url": "https://github.com/nesrak1/UABEANext/actions/workflows/build-windows.yml",
+        "regex": "Build UABEA Windows"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://nightly.link/nesrak1/UABEANext/workflows/build-windows/master/uabea-windows.zip",
+                "hash": "skip"
+            }
+        }
+    }
+}
