@@ -45,10 +45,10 @@ scoop install hypomux
 | stelliberty | 现代化跨平台网络代理客户端 | [Kindness-Kismet/stelliberty](https://github.com/Kindness-Kismet/stelliberty)<br>🔄️自动更新 |
 | thunder | 多协议高速下载与云存储工具 | [迅雷官网](https://www.xunlei.com/)<br/>🔄️自动更新 |
 | teyvat-guide | 原神数据辅助工具 | [BTMuli/TeyvatGuide](https://github.com/BTMuli/TeyvatGuide)<br>🔄️自动更新 |
+| todesk | ToDesk 远程控制客户端 | [ToDesk官网](https://www.todesk.com/)<br>🔄️自动更新 |
 | tubatools | DIY 硬件检测与系统维护工具箱 | [图吧工具箱官网](https://www.tbtool.cn/)<br/>🔄️自动更新 |
 | uabeanext | UABEA的接续开发版本 | [nesrak1/UABEANext](https://github.com/nesrak1/UABEANext)<br/>nightly version |
 | workbuddy | 腾讯全场景 AI 办公效率助手 | [WorkBuddy官网](https://www.workbuddy.ai/)<br>🔄️自动更新 |
-|  |  |  |
 
 > ⚠️ 部分应用为第三方/修改版本，请自行评估风险并遵守原软件许可协议。
 
@@ -181,4 +181,4 @@ A: 欢迎！请确保：
 
 > 💡 本 bucket 为个人维护，不保证长期可用性。  
 > 🐛 遇到问题？欢迎提 Issue 或 PR～  
-> 🔄 最后更新：2026-8-2
+> 🔄 最后更新：2026-10-12

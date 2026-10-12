@@ -1,0 +1,37 @@
+{
+    "version": "5.2.1.0",
+    "description": "ToDesk Windows 客户端（远程控制）",
+    "homepage": "https://www.todesk.com/",
+    "license": {
+        "identifier": "Unknown",
+        "url": "https://www.todesk.com/pricing.html"
+    },
+    "url": "https://dl.todesk.com/irrigation/ToDesk_5.2.1.0.exe#/dl.7z",
+    "hash": "ceeca98f86eb8fe79f6a7622b02d41b5031496119c13385e5d9718c134118995",
+    "pre_install": [
+        "Expand-7ZipArchive \"$dir\\app64.7z\" \"$dir\"",
+        "Remove-Item -R -Path \"$dir\\`$PLUGINSDIR\"",
+        "Write-Host `$null >> \"$dir\\config.ini\""
+    ],
+    "shortcuts": [
+        [
+            "ToDesk.exe",
+            "To Desk"
+        ]
+    ],
+    "persist": [
+        "record",
+        "config.ini"
+    ],
+    "checkver": {
+        "url": "https://www.todesk.com/download.html",
+        "useragent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.26",
+        "regex": "irrigation\\\\u002FToDesk_(?<version>[\\d.]+)\\.exe"
+    },
+    "autoupdate": {
+        "url": "https://dl.todesk.com/irrigation/ToDesk_$version.exe#/dl.7z",
+        "hash": {
+            "mode": "download"
+        }
+    }
+}
