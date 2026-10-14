@@ -1,0 +1,56 @@
+{
+    "version": "9.9.36.260924",
+    "description": "An instant messaging software service developed by Tencent",
+    "homepage": "https://im.qq.com/pcqq/index.shtml",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://ti.qq.com/agreement/index.html"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/9.9.36/release/e8e54bbb/QQ_9.9.36_260924_x64_01.exe#/dl.7z",
+            "hash": "63255c70c7ff523e7eed7d52d9708ed7a77ea346ece6474c65dded406edb3155"
+        },
+        "32bit": {
+            "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/9.9.36/release/e8e54bbb/QQ_9.9.36_260924_x86_01.exe#/dl.7z",
+            "hash": "c06dc1455c83a9db4893dc4f4cb2b24028689f92a48ed49853bcfa75045f734c"
+        },
+        "arm64": {
+            "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/9.9.36/release/e8e54bbb/QQ_9.9.36_260924_arm64_01.exe#/dl.7z",
+            "hash": "9f967e09dbd23d060d3ceb0f5ffa15c7305fa03873fa2defd6c4e6f2cd29d967"
+        }
+    },
+    "extract_dir": "Files",
+    "shortcuts": [
+        [
+            "QQ.exe",
+            "QQ"
+        ]
+    ],
+    "checkver": {
+        "script": [
+            "# Please keep this script. Using 'cdn-go.cn' may result in receiving expired cache responses.",
+            "$url = 'https://cdn-go.cn/qq-web/im.qq.com_new/latest/rainbow/windowsConfig.js'",
+            "$hostname = ([Uri]$url).Host",
+            "$records = Resolve-DnsName 'cdn-go.cn.cloud.tc.qq.com' -Type A -DnsOnly -ErrorAction Ignore",
+            "$ip = $records | Where-Object { $_.QueryType -eq 'A' -and $_.IPAddress } | Select-Object -ExpandProperty IP4Address -First 1",
+            "$url = $url -Replace [regex]::Escape($hostname), $ip",
+            "Invoke-WebRequest -Uri $url -UseBasicParsing -Headers @{'Host' = $hostname} | Select-Object -ExpandProperty Content"
+        ],
+        "regex": "qqfile/[Qq]{2}N[Tt]([Vv]\\d+)?/([\\d.]+)/release/([a-f0-9]+)/QQ_([\\d.]+)_(\\d+)_x86_01\\.exe",
+        "replace": "${4}.${5}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/$match2/release/$match3/QQ_$match2_$buildVersion_x64_01.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/$match2/release/$match3/QQ_$match2_$buildVersion_x86_01.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/$match2/release/$match3/QQ_$match2_$buildVersion_arm64_01.exe#/dl.7z"
+            }
+        }
+    }
+}
