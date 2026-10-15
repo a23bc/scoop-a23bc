@@ -1,38 +1,38 @@
 {
-  "version": "7.3.5.810",
-  "description": "夸克网盘 电脑高效拍档 一键存爽快看",
-  "homepage": "https://pan.quark.cn/",
-  "license": "Proprietary",
-  "url": "https://umcdn.quark.cn/download/37211/quarkclouddrivepc/pckk@product_guanwang/QuarkCloudDrivePC_V7.3.5.810_pc_pf30001_(zh-cn)_release_(Build3207995-1000-x64).exe",
-  "hash": "124b0b1f9c901348b32bd61349c2a7afccbec1080beb33bc714861c3de3887fc",
-  "innosetup": true,
-  "installer": {
-    "script": [
-      "Move-Item -LiteralPath \"$dir\\{code_GetAppExeDestName}\" -Destination \"$dir\\quark_cloud_drive.exe\"",
-      "Move-Item -LiteralPath \"$dir\\{code_GetAppProxyExeDestName}\" -Destination \"$dir\\quark_cloud_drive_proxy.exe\"",
-      "Move-Item -LiteralPath \"$dir\\components\\clouddrive_desktop_widget_independent\\{code_GetAppWidgetExeName}\" -Destination \"$dir\\components\\clouddrive_desktop_widget_independent\\clouddrive_desktop_widget_independent.exe\""
-    ]
-  },
-  "shortcuts": [
-    [
-      "quark_cloud_drive.exe",
-      "夸克网盘"
-    ]
-  ],
-  "checkver": {
-    "script": [
-      "$req = [System.Net.WebRequest]::Create('https://download.quark.cn/download/quarkclouddrivepc?platform=pc&ch=pckk@product_guanwang')",
-      "$req.Method = 'HEAD'",
-      "$req.AllowAutoRedirect = $false",
-      "$req.UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'",
-      "$resp = $req.GetResponse()",
-      "$url = [string]$resp.Headers['Location']",
-      "$resp.Close()",
-      "Write-Output ('{0} {1}' -f [regex]::Match($url, 'QuarkCloudDrivePC_V([\\d.]+)_').Groups[1].Value, $url)"
+    "version": "7.4.0.818",
+    "description": "夸克网盘 电脑高效拍档 一键存爽快看",
+    "homepage": "https://pan.quark.cn/",
+    "license": "Proprietary",
+    "url": "https://umcdn.quark.cn/download/37211/quarkclouddrivepc/pckk@product_guanwang/QuarkCloudDrivePC_V7.4.0.818_pc_pf30001_(zh-cn)_release_(Build3233338-1000-x64).exe",
+    "hash": "23e22214fb77f1e6c4e83670eca15cfaecccbb23f31f8c94b5fdcc2dcbce4fe3",
+    "innosetup": true,
+    "installer": {
+        "script": [
+            "Move-Item -LiteralPath \"$dir\\{code_GetAppExeDestName}\" -Destination \"$dir\\quark_cloud_drive.exe\"",
+            "Move-Item -LiteralPath \"$dir\\{code_GetAppProxyExeDestName}\" -Destination \"$dir\\quark_cloud_drive_proxy.exe\"",
+            "Move-Item -LiteralPath \"$dir\\components\\clouddrive_desktop_widget_independent\\{code_GetAppWidgetExeName}\" -Destination \"$dir\\components\\clouddrive_desktop_widget_independent\\clouddrive_desktop_widget_independent.exe\""
+        ]
+    },
+    "shortcuts": [
+        [
+            "quark_cloud_drive.exe",
+            "夸克网盘"
+        ]
     ],
-    "regex": "^([\\d.]+) (?<url>https://\\S+)$"
-  },
-  "autoupdate": {
-    "url": "$matchUrl"
-  }
+    "checkver": {
+        "script": [
+            "$req = [System.Net.WebRequest]::Create('https://download.quark.cn/download/quarkclouddrivepc?platform=pc&ch=pckk@product_guanwang')",
+            "$req.Method = 'HEAD'",
+            "$req.AllowAutoRedirect = $false",
+            "$req.UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'",
+            "$resp = $req.GetResponse()",
+            "$url = [string]$resp.Headers['Location']",
+            "$resp.Close()",
+            "Write-Output ('{0} {1}' -f [regex]::Match($url, 'QuarkCloudDrivePC_V([\\d.]+)_').Groups[1].Value, $url)"
+        ],
+        "regex": "^([\\d.]+) (?<url>https://\\S+)$"
+    },
+    "autoupdate": {
+        "url": "$matchUrl"
+    }
 }
