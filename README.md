@@ -46,7 +46,7 @@ scoop install hypomux
 | stelliberty | 现代化跨平台网络代理客户端 | [Kindness-Kismet/stelliberty](https://github.com/Kindness-Kismet/stelliberty)<br>🔄️自动更新 |
 | teyvat-guide | 原神数据辅助工具 | [BTMuli/TeyvatGuide](https://github.com/BTMuli/TeyvatGuide)<br>🔄️自动更新 |
 | thunder | 多协议高速下载与云存储工具 | [迅雷官网](https://www.xunlei.com/)<br/>🔄️自动更新 |
-| todesk | ToDesk 远程控制客户端 | [ToDesk官网](https://www.todesk.com/)<br>🔄️自动更新 |
+| todesk | ToDesk 远程控制客户端 | [ToDesk官网](https://www.todesk.com/)<br>🔄️自动更新<br>⚠️ 厂商会覆盖同地址安装包致哈希失效，装不上时用 `scoop update todesk -s` |
 | tubatools | DIY 硬件检测与系统维护工具箱 | [图吧工具箱官网](https://www.tbtool.cn/)<br/>🔄️自动更新 |
 | uabeanext | UABEA的接续开发版本 | [nesrak1/UABEANext](https://github.com/nesrak1/UABEANext)<br/>nightly version |
 | workbuddy | 腾讯全场景 AI 办公效率助手 | [WorkBuddy官网](https://www.workbuddy.ai/)<br>🔄️自动更新 |
