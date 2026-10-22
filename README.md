@@ -37,6 +37,7 @@ scoop install hypomux
 | miflash_unlock | 小米官方 Bootloader 解锁工具 (Mi Unlock) | [Mi Unlock 官网](https://www.miui.com/unlock/index.html)<br/>🔄️自动更新 |
 | mio-kitchen | Android ROM工具 | [ColdWindScholar/MIO-KITCHEN-SOURCE](https://github.com/ColdWindScholar/MIO-KITCHEN-SOURCE)<br/>🔄️自动更新 |
 | oopz | 跨平台游戏语音社交客户端 | [Oopz 官网](https://www.oopz.cn/)<br>🔄️自动更新 |
+| perfectworldarena | 完美世界竞技平台 (CS/CS2 官匹对战平台) | [完美世界竞技平台官网](https://pvp.wanmei.com/)<br>🔄️自动更新 |
 | qobuzdownloaderx | Qobuz 高解析度无损音乐下载器 | [ImAiiR/QobuzDownloaderX](https://github.com/ImAiiR/QobuzDownloaderX)<br>🔄️自动更新 |
 | qobuzdownloaderx-mod | Qobuz 音乐下载器 (MOD 增强版) | [DJDoubleD/QobuzDownloaderX-MOD](https://github.com/DJDoubleD/QobuzDownloaderX-MOD)<br>🔄️自动更新 |
 | qoder | 基于通义千问的 AI 原生 IDE | [Qoder官网](https://qoder.com/)<br>🔄️自动更新 |
