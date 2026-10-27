@@ -1,12 +1,12 @@
 {
-    "version": "25.1.13.1637",
+    "version": "25.1.40.1705",
     "description": "迅雷 (Thunder) - 拥有迅雷云盘、高速下载、边下边播等功能的下载工具。",
     "homepage": "https://pc.xunlei.com/",
     "license": "Proprietary",
     "architecture": {
         "64bit": {
-            "url": "https://down.sandai.net/thunder_pc/ThunderSetup25.1.13.1637xl.exe",
-            "hash": "b2c7a5269b267e7390bed95975ff9ba56088b26a945b6a2ba4b35b3b15fe8ec6"
+            "url": "https://down.sandai.net/thunder_pc/ThunderSetup25.1.40.1705xl.exe",
+            "hash": "f5d6e0ec347aa4fb780304ee69ef52420db032f124ebfdc70d7c0fa47674c3d8"
         }
     },
     "extract_dir": "",
