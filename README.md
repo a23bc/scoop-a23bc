@@ -41,6 +41,7 @@ scoop install hypomux
 | qobuzdownloaderx | Qobuz 高解析度无损音乐下载器 | [ImAiiR/QobuzDownloaderX](https://github.com/ImAiiR/QobuzDownloaderX)<br>🔄️自动更新 |
 | qobuzdownloaderx-mod | Qobuz 音乐下载器 (MOD 增强版) | [DJDoubleD/QobuzDownloaderX-MOD](https://github.com/DJDoubleD/QobuzDownloaderX-MOD)<br>🔄️自动更新 |
 | qoder | 基于通义千问的 AI 原生 IDE | [Qoder官网](https://qoder.com/)<br>🔄️自动更新 |
+| qoder-desktop | Qoder 桌面版 — 面向人机协作的 Agent 工作台 | [Qoder 下载页](https://qoder.com/download)<br>🔄️自动更新 |
 | qq-nt | 腾讯 QQ NT 即时通讯客户端 | [QQ 官网](https://im.qq.com/pcqq/index.shtml)<br>🔄️自动更新 |
 | quark-cloud-drive | 夸克网盘 | [夸克网盘官网](https://pan.quark.cn)<br/>🔄️自动更新 |
 | qwen-studio | Qwen AI 官方桌面客户端 | [Qwen官网](https://qwen.ai/)<br>🔄️自动更新 |
@@ -183,4 +184,4 @@ A: 欢迎！请确保：
 
 > 💡 本 bucket 为个人维护，不保证长期可用性。  
 > 🐛 遇到问题？欢迎提 Issue 或 PR～  
-> 🔄 最后更新：2026-10-14
+> 🔄 最后更新：2026-10-30
