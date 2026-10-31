@@ -1,10 +1,10 @@
 {
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Cross-platform desktop GUI for ipatool — search the App Store, browse versions, download .ipa/.pkg with a resumable queue.",
     "homepage": "https://github.com/a23bc/ipatool-gui",
     "license": "MIT",
-    "url": "https://github.com/a23bc/ipatool-gui/releases/download/v0.2.0/ipatool-gui-0.2.0-win-x64-portable.exe",
-    "hash": "3f42d7679fbc484120fad66b09e277948f8318c630e578452d7e1f9fbee0cbae",
+    "url": "https://github.com/a23bc/ipatool-gui/releases/download/v0.3.0/ipatool-gui-0.3.0-win-x64-portable.zip",
+    "hash": "9bbf1e95497d15cf666191892bbd52bff6eeadabeb3be93d2ad8631dfaf5edc6",
     "bin": [
         [
             "IPATool GUI.exe",
@@ -17,19 +17,10 @@
             "IPATool GUI"
         ]
     ],
-    "pre_install": [
-        "# ipatool-gui 的 win 包是 NSIS 外壳包裹的便携程序：解包内嵌的 app-64.7z 还原便携目录",
-        "$exe = Get-ChildItem \"$dir\" -Filter '*.exe' | Select-Object -First 1",
-        "Expand-7zipArchive $exe.FullName \"$dir\\_nsis\"",
-        "$inner = Join-Path \"$dir\\_nsis\" '$PLUGINSDIR\\app-64.7z'",
-        "Expand-7zipArchive $inner \"$dir\" -Removal",
-        "Remove-Item \"$dir\\_nsis\" -Recurse -Force",
-        "Remove-Item $exe.FullName -Force"
-    ],
     "checkver": {
         "github": "https://github.com/a23bc/ipatool-gui"
     },
     "autoupdate": {
-        "url": "https://github.com/a23bc/ipatool-gui/releases/download/v$version/ipatool-gui-$version-win-x64-portable.exe"
+        "url": "https://github.com/a23bc/ipatool-gui/releases/download/v$version/ipatool-gui-$version-win-x64-portable.zip"
     }
 }
