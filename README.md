@@ -51,7 +51,8 @@ scoop install hypomux
 | todesk | ToDesk 远程控制客户端 | [ToDesk官网](https://www.todesk.com/)<br>🔄️自动更新<br>⚠️ 厂商会覆盖同地址安装包致哈希失效，装不上时用 `scoop update todesk -s` |
 | tubatools | DIY 硬件检测与系统维护工具箱 | [图吧工具箱官网](https://www.tbtool.cn/)<br/>🔄️自动更新 |
 | uabeanext | UABEA的接续开发版本 | [nesrak1/UABEANext](https://github.com/nesrak1/UABEANext)<br/>nightly version |
-| workbuddy | 腾讯全场景 AI 办公效率助手 | [WorkBuddy官网](https://www.workbuddy.ai/)<br>🔄️自动更新 |
+| workbuddy | 腾讯全场景 AI 办公效率助手（国际版） | [WorkBuddy 官网](https://www.workbuddy.ai/)<br>🔄️自动更新 |
+| workbuddy-cn | 腾讯全场景 AI 办公效率助手（国内版） | [WorkBuddy 国内官网](https://www.workbuddy.cn/)<br>🔄️自动更新 |
 
 > ⚠️ 部分应用为第三方/修改版本，请自行评估风险并遵守原软件许可协议。
 
