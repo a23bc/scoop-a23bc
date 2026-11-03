@@ -1,5 +1,5 @@
 {
-    "version": "9.9.36.260924",
+    "version": "9.9.37.261103",
     "description": "An instant messaging software service developed by Tencent",
     "homepage": "https://im.qq.com/pcqq/index.shtml",
     "license": {
@@ -8,16 +8,16 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/9.9.36/release/e8e54bbb/QQ_9.9.36_260924_x64_01.exe#/dl.7z",
-            "hash": "63255c70c7ff523e7eed7d52d9708ed7a77ea346ece6474c65dded406edb3155"
+            "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/9.9.37/release/a2ca1b61/QQ_9.9.37_261103_x64_01.exe#/dl.7z",
+            "hash": "5cd7c13e36b391f88b2ad272fa870d74f476135b64244844ec0ad7ac7b411b48"
         },
         "32bit": {
-            "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/9.9.36/release/e8e54bbb/QQ_9.9.36_260924_x86_01.exe#/dl.7z",
-            "hash": "c06dc1455c83a9db4893dc4f4cb2b24028689f92a48ed49853bcfa75045f734c"
+            "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/9.9.37/release/a2ca1b61/QQ_9.9.37_261103_x86_01.exe#/dl.7z",
+            "hash": "7313318a45602e21bd293ee49d4780af55f400ad31c7b76a7f8a6d4b0eb37a4f"
         },
         "arm64": {
-            "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/9.9.36/release/e8e54bbb/QQ_9.9.36_260924_arm64_01.exe#/dl.7z",
-            "hash": "9f967e09dbd23d060d3ceb0f5ffa15c7305fa03873fa2defd6c4e6f2cd29d967"
+            "url": "https://qqdl.gtimg.cn/qqfile/qqntv2/9.9.37/release/a2ca1b61/QQ_9.9.37_261103_arm64_01.exe#/dl.7z",
+            "hash": "7c9c5864e85b49c1626635529d2094048a130fe3e6973365fcbe6ccfc28d47c1"
         }
     },
     "extract_dir": "Files",
