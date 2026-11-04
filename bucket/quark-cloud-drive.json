@@ -1,10 +1,10 @@
 {
-    "version": "7.4.2.822",
+    "version": "7.4.5.823",
     "description": "夸克网盘 电脑高效拍档 一键存爽快看",
     "homepage": "https://pan.quark.cn/",
     "license": "Proprietary",
-    "url": "https://umcdn.quark.cn/download/37211/quarkclouddrivepc/pckk@product_guanwang/QuarkCloudDrivePC_V7.4.2.822_pc_pf30001_(zh-cn)_release_(Build3244135-1000-x64).exe",
-    "hash": "d626b0648c6dfe56d6119bb576c6a87e5f74f4623c29125c2ca9c3678a5b8a0e",
+    "url": "https://umcdn.quark.cn/download/37211/quarkclouddrivepc/pckk@product_guanwang/QuarkCloudDrivePC_V7.4.5.823_pc_pf30001_(zh-cn)_release_(Build3264873-1000-x64).exe",
+    "hash": "cee505bef88411ce488082d6a089fac3e9840d8f85e15b699e3942f4f1df1ffe",
     "innosetup": true,
     "installer": {
         "script": [
