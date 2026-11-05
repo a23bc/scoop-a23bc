@@ -38,8 +38,8 @@
     ],
     "persist": "data",
     "checkver": {
-        "url": "https://qoder.com/changelog",
-        "regex": "tag_name.{1,10}(?<version>\\d+\\.\\d+\\.\\d+).{1,300}?type.{1,10}ide"
+        "url": "https://changelog.qoder.com/ide",
+        "regex": "update-description\">(?<version>\\d+\\.\\d+\\.\\d+)<"
     },
     "autoupdate": {
         "url": "https://download.qoder.com/release/latest/QoderUserSetup-x64.exe"
