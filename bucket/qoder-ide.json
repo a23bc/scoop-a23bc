@@ -1,7 +1,7 @@
 {
     "version": "1.38.0",
-    "description": "Agentic Coding Platform",
-    "homepage": "https://qoder.com/",
+    "description": "Qoder IDE — autonomous development IDE with agentic coding",
+    "homepage": "https://qoder.com/ide",
     "license": "Proprietary",
     "url": "https://download.qoder.com/release/latest/QoderUserSetup-x64.exe",
     "hash": "b5556db92b88a28b5138ffafc6f252b40811345e2a4ea7bfcd123daf3a9f339a",
