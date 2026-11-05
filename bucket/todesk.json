@@ -1,13 +1,13 @@
 {
-    "version": "5.2.3.0",
+    "version": "5.3.1.0",
     "description": "ToDesk Windows 客户端（远程控制）",
     "homepage": "https://www.todesk.com/",
     "license": {
         "identifier": "Unknown",
         "url": "https://www.todesk.com/pricing.html"
     },
-    "url": "https://dl.todesk.com/irrigation/ToDesk_5.2.3.0.exe#/dl.7z",
-    "hash": "d420464859d7bcec6d8c06357a5d1b96fc88719497cb3cf5ca6ff9f81a672dde",
+    "url": "https://dl.todesk.com/irrigation/ToDesk_5.3.1.0.exe#/dl.7z",
+    "hash": "82dba1a6bf8f9f4bbd7556c2bfb5bcbc96abb97bcdb20a5f5b55a8d8ad8a8fe3",
     "pre_install": [
         "Expand-7ZipArchive \"$dir\\app64.7z\" \"$dir\"",
         "Remove-Item -R -Path \"$dir\\`$PLUGINSDIR\"",
