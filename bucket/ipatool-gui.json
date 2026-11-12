@@ -1,10 +1,10 @@
 {
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "Cross-platform desktop GUI for ipatool — search the App Store, browse versions, download .ipa/.pkg with a resumable queue.",
     "homepage": "https://github.com/a23bc/ipatool-gui",
     "license": "MIT",
-    "url": "https://github.com/a23bc/ipatool-gui/releases/download/v0.3.0/ipatool-gui-0.3.0-win-x64-portable.zip",
-    "hash": "9bbf1e95497d15cf666191892bbd52bff6eeadabeb3be93d2ad8631dfaf5edc6",
+    "url": "https://github.com/a23bc/ipatool-gui/releases/download/v0.3.1/ipatool-gui-0.3.1-win-x64-portable.zip",
+    "hash": "811f2c7777d12eeb043873a81f1ee949d45819550305d7d22e3f50f78589caf8",
     "bin": [
         [
             "IPATool GUI.exe",
