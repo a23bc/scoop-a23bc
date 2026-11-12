@@ -1,10 +1,10 @@
 {
-    "version": "1.0.26101512",
+    "version": "1.0.26111211",
     "description": "完美世界竞技平台 (Perfect World Arena) - 完美世界官方电竞对战平台",
     "homepage": "https://pvp.wanmei.com/",
     "license": "Proprietary",
-    "url": "https://client.wmpvp.com/download/perfectworldarena_win32_v1.0.26101512_2.exe#/dl.7z",
-    "hash": "sha512:08ce927ef73f202b52a170c13c599f45259a8602846886cf10be3fb8725fd209d808a7a4a6a3c60eef5009638207e02d127d796de6e9b83368b7f36a351a18d3",
+    "url": "https://client.wmpvp.com/download/perfectworldarena_win32_v1.0.26111211_0.exe#/dl.7z",
+    "hash": "sha512:56a9c7fc8305efa89ab06fc6a0fb926a25f7e74cbb3360f7dbabd15608f4ffaf1030ad790e068ae99bfdaf2964f70077789c8807bd4573513894363f0b1ccbf5",
     "installer": {
         "script": [
             "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\"",
