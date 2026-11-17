@@ -1,10 +1,10 @@
 {
-    "version": "0.5.13",
+    "version": "0.5.14",
     "description": "Qoder Desktop - an agent workbench for human and AI software teams",
     "homepage": "https://qoder.com/download",
     "license": "Proprietary",
-    "url": "https://download.qoder.com/qoder-app/releases/0.5.13/Qoder-win-x64-user.exe",
-    "hash": "c8fd8902dc91226ac4d49e880a683052aab13af4191be6a611def931224aff27",
+    "url": "https://download.qoder.com/qoder-app/releases/0.5.14/Qoder-win-x64-user.exe",
+    "hash": "59e5aee19f964bf9386ba6bb049f51420a5875f8c78faac92a85ee92dec03f3d",
     "pre_install": [
         "# 1. 解压外层 NSIS 安装包",
         "$installer = Get-ChildItem $dir -Filter '*.exe' | Select-Object -First 1",
